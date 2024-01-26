@@ -23,3 +23,8 @@ variable "subnets" {
   type = list(string)
   
 }
+
+variable "tags"{
+  description = "Tags del proyecto"
+  type = map(string)
+}
