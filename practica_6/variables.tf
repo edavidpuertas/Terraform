@@ -5,15 +5,21 @@ variable "virginia_cidr" {
 
 
 }
+# ctrl + k + c comments line
+# variable "public_subnet" {
+#   description = "CIDR public subnet"
+#   type        = string
 
-variable "public_subnet" {
-  description = "CIDR public subnet"
-  type        = string
+# }
 
-}
+# variable "private_subnet" {
+#   description = "CIDR private subnet"
+#   type        = string
 
-variable "private_subnet" {
-  description = "CIDR private subnet"
-  type        = string
+# }
 
+variable "subnets" {
+  description = "List of subnets"
+  type = list(string)
+  
 }
