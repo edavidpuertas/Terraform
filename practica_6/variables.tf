@@ -20,11 +20,17 @@ variable "virginia_cidr" {
 
 variable "subnets" {
   description = "List of subnets"
-  type = list(string)
-  
+  type        = list(string)
+
 }
 
-variable "tags"{
+variable "tags" {
   description = "Tags del proyecto"
-  type = map(string)
+  type        = map(string)
+}
+
+variable "sg_igress_cidr" {
+  description = "CIDR for ingress traffic"
+  type        = string
+
 }

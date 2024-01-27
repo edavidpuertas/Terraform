@@ -1,4 +1,4 @@
 data "aws_key_pair" "key" {
-    key_name = "mykeytf"
-  
+  key_name = "mykeytf"
+
 }
