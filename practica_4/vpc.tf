@@ -18,3 +18,4 @@ resource "aws_vpc" "vpc_ohio" {
     provider = aws.ohio
   
 }
+
