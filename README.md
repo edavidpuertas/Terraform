@@ -179,3 +179,20 @@ output "linux_public_ip"{
 
   Revert with the commnad:
   terraform apply --auto-pprove=true
+
+## Terraform .tfstate
+only safe in AWS S3(encrypted and with concurrency control like dynamo db) or Terraform Cloud
+
+## Commnads
+terraform validate
+terraform fmt
+terraform show -json
+terraform providers
+terraform outputterraform plan
+terraform refresh (update .tfstate)
+terraform graph | dot -Tsvg > graph.svg (show resource realtionship)
+terraform state list
+terraform state show  | resource.nameresource
+terraform state mv (move resource in .tfstate, example action:change name resource)
+terraform state rm (stop follow resources)
+
