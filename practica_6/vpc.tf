@@ -1,7 +1,7 @@
 resource "aws_vpc" "vpc_virginia" {
   cidr_block = var.virginia_cidr
   tags = {
-    Name = "VPC_VIRGINIA"
+    Name = "vpc_virginia"
   }
   # tags = {
   #   Name = "VPC_VIRGINIA"
@@ -17,7 +17,7 @@ resource "aws_subnet" "public_subnet" {
   cidr_block              = var.subnets[0]
   map_public_ip_on_launch = true
   tags = {
-    Name = "Public Subnet"
+    Name = "public_subnet_target"
   }
 #   tags = {
 #     Name = "Public Subnet"
@@ -31,11 +31,14 @@ resource "aws_subnet" "private_subnet" {
   #cidr_block              = var.private_subnet
   cidr_block = var.subnets[1]
   tags = {
-    Name = "Private Subnet"
+    Name = "private_subenet_target"
   }
 #   tags = {
 #     Name = "Private Subnet"
 #     name = "prueba"
 #     env  = "Dev"
 # }
+  depends_on = [
+    aws_subnet.public_subnet
+   ]
 }
