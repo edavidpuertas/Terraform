@@ -214,3 +214,22 @@ export TF_LOG=TRACE #(type info,warning,error,debug,trace)
 export TF_LOG_PATH=logs.txt
 unset  TF_LOG=TRACE
 unset TF_LOG_PATH
+
+## Import resources
+1- terraform state list
+2 - manual errase aws  intance 
+3 - terraform state rm aws_instance.public_instance
+4 - comment all instance code
+5 - create instance using AWS GUI
+6 - ADD in ec2.tf:
+
+resource "aws_instance" "mywebserver" {
+
+}
+
+7 - terraform import aws_instance.mywebserver id
+8 -terraform state list
+9 - terraform state show nameResource
+10 - copy and paste in ec2.tf, errase and formating data of the resource
+
+
