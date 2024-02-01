@@ -196,3 +196,8 @@ terraform state show  | resource.nameresource
 terraform state mv (move resource in .tfstate, example action:change name resource)
 terraform state rm (stop follow resources)
 
+## Provisioners
+example:
+terraform destroy --target=aws_instance.public_instance --auto-approved=true
+
+terraform apply --replace=aws_instance.public_instance
