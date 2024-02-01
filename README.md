@@ -201,3 +201,16 @@ example:
 terraform destroy --target=aws_instance.public_instance --auto-approved=true
 
 terraform apply --replace=aws_instance.public_instance
+
+## Taint
+mark resources to be destroyed and recreated
+
+terraform state list
+terraform taint aws_instance.public_instance
+terraform untaint aws_instance.public_instance
+
+## Login
+export TF_LOG=TRACE #(type info,warning,error,debug,trace)
+export TF_LOG_PATH=logs.txt
+unset  TF_LOG=TRACE
+unset TF_LOG_PATH
