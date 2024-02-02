@@ -1,7 +1,8 @@
 variable "virginia_cidr" {
   description = "CIDR Virginia"
   type        = string
-  sensitive   = false
+  #usin workspace
+  #type        = map(string)
 
 
 }
