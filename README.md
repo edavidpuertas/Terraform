@@ -232,4 +232,41 @@ resource "aws_instance" "mywebserver" {
 9 - terraform state show nameResource
 10 - copy and paste in ec2.tf, errase and formating data of the resource
 
+## Workspace (terraform.tftstate.d)
+terraform workspace list || terraform workspace show
+terraform workspace new nameWorkSpace
+terraform workspace dev
+terraform workspace select nameWorkspace
+terraform workspace delete nameWorkspace
+
+destroy only instance
+
+
+
+## For each ( only use vith variables set an maps )
+terraform destroy --target=aws_instance.public_instance --auto-approve=true
+
+## Terraform Functions
+terraform console
+
+split()
+lower()
+upper()
+title(var.cadena)
+substr(var.cadena,0,7)
+join("-",var.palabras)
+length(var.palabras)
+index(var.palabras,"como")
+element(var.palabras,2)
+contains(var.palabras,"cuaolquiera) /true o false
+
+Maps:
+key(var.entornos)
+values(var,entornos)
+lookup(var.entornos,"10.10.0.0/16)
+lookup(var.entornos,"10.10.0.0/16,"no existe")
+
+
+
+
 
