@@ -41,3 +41,13 @@ variable "ec2_specs" {
   type        = map(string)
 
 }
+
+variable "enable_monitoring" {
+  description = "Enable deploy monitor server"
+  type        = bool
+}
+
+variable "ingress_port_list" {
+  description = "Lista de puertos de ingress"
+  type        = list(number)
+}

@@ -248,7 +248,7 @@ terraform destroy --target=aws_instance.public_instance --auto-approve=true
 
 ## Terraform Functions
 terraform console
-
+~~~
 split()
 lower()
 upper()
@@ -259,13 +259,15 @@ length(var.palabras)
 index(var.palabras,"como")
 element(var.palabras,2)
 contains(var.palabras,"cuaolquiera) /true o false
+~~~
 
 Maps:
+~~~
 key(var.entornos)
 values(var,entornos)
 lookup(var.entornos,"10.10.0.0/16)
 lookup(var.entornos,"10.10.0.0/16,"no existe")
-
+~~~
 
 
 
