@@ -19,7 +19,7 @@ resource "aws_instance" "public_instance" {
 
   tags = {
     #"Name" = var.instancias[count.index]
-    "Name" = each.value
+    "Name" = "${each.value}-${local.sufix}"
   }
 }
 
@@ -34,7 +34,7 @@ resource "aws_instance" "monitoring_instance" {
 
   tags = {
 
-    "Name" = "Monitoreo"
+    "Name" = "Monitoreo-${local.sufix}"
   }
 }
 

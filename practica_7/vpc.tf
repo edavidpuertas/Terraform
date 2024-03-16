@@ -2,7 +2,7 @@ resource "aws_vpc" "vpc_virginia" {
   cidr_block = var.virginia_cidr
   # cidr_block = lookup(var.virginia_cidr,terraform.workspace)
   tags = {
-    Name = "vpc_virginia"
+    Name = "vpc_virginia-${local.sufix}"
   }
   # tags = {
   #   Name = "VPC_VIRGINIA"
@@ -18,7 +18,7 @@ resource "aws_subnet" "public_subnet" {
   cidr_block              = var.subnets[0]
   map_public_ip_on_launch = true
   tags = {
-    Name = "public_subnet"
+    Name = "public_subnet-${local.sufix}"
   }
   #   tags = {
   #     Name = "Public Subnet"
@@ -32,7 +32,7 @@ resource "aws_subnet" "private_subnet" {
   #cidr_block              = var.private_subnet
   cidr_block = var.subnets[1]
   tags = {
-    Name = "private_subenet"
+    Name = "private_subenet-${local.sufix}"
   }
   #   tags = {
   #     Name = "Private Subnet"
@@ -48,7 +48,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc_virginia.id
 
   tags = {
-    Name = "igw vpc virginia"
+    Name = "igw vpc virginia-${local.sufix}"
   }
 }
 
@@ -61,7 +61,7 @@ resource "aws_route_table" "public_crt" {
   }
 
   tags = {
-    Name = "public_crt"
+    Name = "public_crt-${local.sufix}"
   }
 }
 
@@ -71,7 +71,7 @@ resource "aws_route_table_association" "crta_public_subnet" {
 }
 
 resource "aws_security_group" "sg_public_instance" {
-  name        = "Public Instance SG"
+  name        = "Public Instance SG-${local.sufix}"
   description = "Allow SSH inbound traffic and all egress traffic"
   vpc_id      = aws_vpc.vpc_virginia.id
 
@@ -94,7 +94,7 @@ resource "aws_security_group" "sg_public_instance" {
     ipv6_cidr_blocks = ["::/0"]
   }
   tags = {
-    Name = "Public Intance SG"
+    Name = "Public Intance SG-${local.sufix}"
   }
 }
 
