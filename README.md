@@ -269,6 +269,20 @@ lookup(var.entornos,"10.10.0.0/16)
 lookup(var.entornos,"10.10.0.0/16,"no existe")
 ~~~
 
+Terraform tfstate backend
+
+#Start to use tfstate backend and move our tfstate to aws bucket s3
+terraform init
+yes
+
+#delete tefstate local
+
+#Finish remote work
+1 -terraform state pull > terraform.tfstate #downdload the tfstate from our s3 bucket to local
+2 - Delete backend file or comment it
+3 - terraform init
+4 - terraform init -migrate-state
+
 
 
 
